@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://127.0.0.1:8080/api/v1";
+axios.defaults.withCredentials = false;
 
 function App() {
+  const handleTest = async (e) => {
+    e.preventDefault();
+
+    try{
+      const {data} = await axios.get("/employees/test")
+      console.log(data)
+
+
+    }catch(e){
+      console.log(e);
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Saturn</h1>
+      <button onClick={handleTest} className="p-8 bg-blue-200 text-black">Test</button>
     </div>
   );
 }
