@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {FaTrashAlt} from "react-icons/fa"
 
 const Table = () => {
     const [employee, setEmployees] = useState([])
@@ -82,9 +83,12 @@ const Table = () => {
                   <td className="py-3 px-6 border-b text-gray-700">
                     {employee.employeeDepartment}
                   </td>
-                  <td className="py-3 px-6 border-b">
+                  <td className="py-3 px-6 border-b space-x-6">
                     <button className="text-blue-600 hover:underline transition duration-150">
                       Edit
+                    </button>
+                    <button className="text-slate-500">
+                      <FaTrashAlt/>
                     </button>
                   </td>
                 </tr>
